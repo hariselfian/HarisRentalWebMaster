@@ -30,6 +30,7 @@ class UserController extends Controller
         $validasi = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|unique:users',
+            'phone' => 'required|unique:users',
             'password' => 'required|min:6'
         ]);
 
