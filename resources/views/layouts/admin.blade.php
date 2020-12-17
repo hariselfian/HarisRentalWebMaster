@@ -96,6 +96,15 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route('barangsewaan.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-shopping-bag"></i>
+              <p>
+                Barang Sewaan
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
@@ -197,5 +206,12 @@
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+</script>
 </body>
 </html>
