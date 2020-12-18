@@ -37,8 +37,16 @@ class BarangSewaanController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());die();
+
+        $fileName = '';
+        if($request->image->getClientOriginalName()){
+            $file = str_replace(' ','', $request->image->getClientOriginalName());
+            $fileName = date('mYdHs').rand(1,999).'_'.$file;
+            $request->image->storeAs('public/barangsewaan', $fileName);
+        }
+
         $user = BarangSewaan::create(array_merge($request->all(),[
-            // 'password' => bcrypt($request->password)
+            'image' => $fileName
         ]));
         return redirect('barangsewaan');
     }
