@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\BarangSewaan;
 
 class BarangSewaanController extends Controller
 {
@@ -14,7 +14,7 @@ class BarangSewaanController extends Controller
      */
     public function index()
     {
-        $user['listUser'] = User::all();
+        $user['listUser'] = BarangSewaan::all();
         return view('barangsewaan')->with($user);
     }
 
@@ -36,7 +36,11 @@ class BarangSewaanController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());die();
+        // dd($request->all());die();
+        $user = BarangSewaan::create(array_merge($request->all(),[
+            // 'password' => bcrypt($request->password)
+        ]));
+        return redirect('barangsewaan');
     }
 
     /**
